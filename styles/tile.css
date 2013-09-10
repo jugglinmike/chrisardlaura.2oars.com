@@ -1,0 +1,18 @@
+.tile {
+	width: 3.1%;
+	height: 3.1%;
+	position: absolute;
+	border: solid 2px #bfbdae;
+	box-sizing: border-box;
+}
+.tile-1 {
+	background-color: #ff5a12;
+} .tile-2 {
+	background-color: #fc0;
+} .tile-3 {
+	background-color: #ccc;
+} .tile-4 {
+	background-color: #4598b2;
+} .tile-5 {
+	background-color: #273961;
+}

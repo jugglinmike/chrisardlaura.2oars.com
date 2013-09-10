@@ -1,0 +1,36 @@
+body {
+	background-color: #bfbdae;
+	color: #333;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+}
+nav ul {
+	list-style-type: none;
+} nav li {
+	/* TODO: Polyfill for IE */
+	display: inline-block;
+	margin: 0 0.7em;
+}
+
+section {
+	position: relative;
+	display: inline-block;
+}
+
+section img {
+	margin: 4.5%;
+	width: 91%;
+} section h3 {
+	position: absolute;
+	font-size: 4em;
+	padding-top: 10%;
+	top: 50%;
+	left: 17%;
+}
