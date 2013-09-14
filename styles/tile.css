@@ -1,3 +1,12 @@
+.tiles {
+	position: absolute;
+	top: 0;
+
+	width: 360px;
+	margin: 0 -20px;
+	height: 380px;
+}
+
 .tile {
 	width: 3.1%;
 	height: 3.1%;
