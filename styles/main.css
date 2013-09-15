@@ -10,37 +10,94 @@ body {
 	box-sizing: border-box;
 }
 
+/*
+ * Breakpoints: 768px
+ * 320px | Mobile | 768px | Tablet | 1024px | Desktop
+ */
+
+@media (max-width: 767px) {
+	nav li {
+		width: 25%;
+	} nav li.home {
+		line-height: 3.2em;
+		float: left;
+		margin: 0;
+		height: 3.2em;
+		width: 21%;
+	}
+	header img {
+		width: 100%;
+	}
+	.container > header {
+		background-image: url(mosaic-pic.jpg);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		width: 100%;
+		font-size: 0.8em;
+	} .container > header hgroup {
+		top: 33%;
+		position: relative;
+	}
+}
+
+@media (min-width: 768px) {
+	section {
+		text-align: left;
+	} section p {
+		width: 60%;
+		padding: 0 2%;
+		display: inline-block;
+	}
+	.container {
+		max-width: 1024px;
+	}
+	.container > header {
+		background-image: url(mosaic-pic-zoom.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+	} .container > header hgroup {
+		text-align: left;
+		left: 10%;
+		top: 10%;
+		font-size: 2em;
+	}
+	header {
+		float: right;
+		width: 40%;
+	} header img {
+		width: 100%;
+	} section header h3 {
+		top: 0;
+		padding: 0.5em 0;
+		margin: 0;
+	}
+}
+
 .container {
-	width: 320px;
 	margin: 0 auto;
 	text-align: center;
 	overflow-x: visible;
+	min-width: 320px;
+	width: 100%;
 }
 
 .container > header {
 	height: 280px;
-} .container > header img {
-	position: relative;
-	left: -20px;
-	top: -50px;
-	z-index: -1;
-	width: 360px;
 }
 
 header {
 	position: relative;
+	min-height: 1em;
 } header hgroup {
 	position: absolute;
-	top: 130px;
-	width: 100%;
 } header h1, h2 {
 	margin: 0;
 } header h1 {
-	font-size: 14pt;
+	font-size: 1.2em;
 } header h2 {
-	font-size: 12pt;
-} header img {
-	width: 100%;
+	font-size: 1em;
 }
 
 nav {
@@ -53,12 +110,7 @@ nav {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-} nav li.home {
-	line-height: 3.2em;
-	float: left;
-	margin: 0;
-	height: 3.2em;
-} nav li {
+}  nav li {
 	/* TODO: Polyfill for IE */
 	display: inline-block;
 	padding: 0 0.4em;
@@ -66,12 +118,25 @@ nav {
 	height: 1em;
 }
 
+/* Clearfix */
+section:before, section:after {
+	content: ' ';
+	display: table;
+} section:after {
+	clear: both;
+} section {
+	*zoom: 1;
+}
+
 section h3 {
 	position: absolute;
-	font-size: 1.5em;
+	font-size: 4em;
 	padding-top: 10%;
-	top: 180px;
-	left: 40px;
+	top: 5%;
+	left: 20%;
+	color: #333;
 } section p {
 	line-height: 1.6em;
+	vertical-align: top;
+	margin: 0 0 2em 0;
 }
