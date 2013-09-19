@@ -6,6 +6,17 @@ body {
 	padding: 0;
 }
 
+p {
+	line-height: 1.6em;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -39,12 +50,18 @@ body {
 		top: 33%;
 		position: relative;
 	}
+	#wedding-party li {
+		display: block;
+		width: auto;
+	} #wedding-party header {
+		margin-bottom: 1em;
+	}
 }
 
 @media (min-width: 768px) {
 	section {
 		text-align: left;
-	} section p {
+	} #our-story p {
 		width: 60%;
 		padding: 0 2%;
 		display: inline-block;
@@ -72,6 +89,13 @@ body {
 		top: 0;
 		padding: 0.5em 0;
 		margin: 0;
+	}
+	#wedding-party li {
+		width: 48%;
+		display: inline-block;
+	} #wedding-party img {
+		float: left;
+		margin: 0 20px 20px 0;
 	}
 }
 
@@ -106,10 +130,6 @@ nav {
 	border-width: 1px 0;
 	border-color: #777;
 	margin-bottom: 1.2em;
-} nav ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
 }  nav li {
 	/* TODO: Polyfill for IE */
 	display: inline-block;
@@ -135,8 +155,43 @@ section h3 {
 	top: 5%;
 	left: 20%;
 	color: #333;
-} section p {
-	line-height: 1.6em;
+}
+
+#our-story p {
 	vertical-align: top;
 	margin: 0 0 2em 0;
+}
+
+#wedding-party header {
+	float: none;
+	width: auto;
+} #wedding-party h3 {
+	position: static;
+} #wedding-party li {
+	position: relative;
+	margin-bottom: 1.8em;
+	padding: 0 1.2em;
+	vertical-align: top;
+} #wedding-party li img {
+	border: solid 1px #333;
+	width: 60px;
+	height: 60px;
+} #wedding-party h4, #wedding-party h5 {
+	margin: 0;
+	line-height: 1em;
+} #wedding-party h4 {
+	margin-bottom: 0.3em;
+	font-size: 1.9em;
+} #wedding-party h5 {
+	color: #777;
+	letter-spacing: 0.5em;
+	text-transform: uppercase;
+}
+#wedding-party header:before, #wedding-party header:after {
+	content: ' ';
+	display: table;
+} #wedding-party header:after {
+	clear: both;
+} #wedding-party header {
+	*zoom: 1;
 }
