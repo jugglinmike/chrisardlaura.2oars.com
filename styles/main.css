@@ -235,3 +235,31 @@ section h3 {
 	display: block;
 	font-size: 0.8em;
 }
+
+#accomodations h4 {
+	margin-bottom: 0.4em;
+	text-transform: uppercase;
+} #accomodations .contact-info {
+	margin-bottom: 1em;
+} #accomodations .contact-info li {
+	display: inline-block;
+	margin-left: 1em;
+} #accomodations .contact-info li:first-child {
+	margin-left: 0;
+} #accomodations .contact-info li:before {
+	font-weight: bold;
+	content: '\00b7';
+	margin-right: 1em;
+} #accomodations .contact-info li:first-child:before {
+	content: none;
+} #accomodations table {
+	margin: 0 auto;
+} #accomodations th {
+	text-align: center;
+} #accomodations td {
+	padding: 0.5em;
+} #accomodations .name {
+	display: block;
+} #accomodations .desc {
+	display: block;
+}
