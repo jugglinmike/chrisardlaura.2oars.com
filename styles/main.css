@@ -195,3 +195,32 @@ section h3 {
 } #wedding-party header {
 	*zoom: 1;
 }
+
+#events header {
+	float: none;
+	width: auto;
+} #events h3 {
+	position: static;
+} #events table {
+	border-collapse: collapse;
+} #events td {
+	background-color: #eee;
+	border: solid 1px #444;
+	padding: 1em 2em;
+} #events td:first-child, #events th {
+	text-align: center;
+	padding: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
+} #events td.inactive {
+	background-color: transparent;
+} #events td.inactive {
+	border-top-color: transparent;
+} #events td.inactive:last-child {
+	border-color: transparent;
+} #events .title {
+	display: block;
+} #events .location {
+	display: block;
+	font-size: 0.8em;
+}
