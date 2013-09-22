@@ -6,6 +6,11 @@ body {
 	padding: 0;
 }
 
+a, a:visited {
+	color: #333;
+	cursor: pointer;
+}
+
 p {
 	line-height: 1.6em;
 	margin: 0;
