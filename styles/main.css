@@ -201,31 +201,31 @@ section h3 {
 	*zoom: 1;
 }
 
-#events header {
+#schedule header {
 	float: none;
 	width: auto;
-} #events h3 {
+} #schedule h3 {
 	position: static;
-} #events table {
+} #schedule table {
 	border-collapse: collapse;
-} #events td {
+} #schedule td {
 	background-color: #eee;
 	border: solid 1px #444;
 	padding: 1em 2em;
-} #events td:first-child, #events th {
+} #schedule td:first-child, #schedule th {
 	text-align: center;
 	padding: 1em;
 	text-transform: uppercase;
 	font-weight: bold;
-} #events td.inactive {
+} #schedule td.inactive {
 	background-color: transparent;
-} #events td.inactive {
+} #schedule td.inactive {
 	border-top-color: transparent;
-} #events td.inactive:last-child {
+} #schedule td.inactive:last-child {
 	border-color: transparent;
-} #events .title {
+} #schedule .title {
 	display: block;
-} #events .location {
+} #schedule .location {
 	display: block;
 	font-size: 0.8em;
 }
