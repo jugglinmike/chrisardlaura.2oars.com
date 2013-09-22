@@ -273,3 +273,9 @@ section h3 {
 } #accomodations .desc {
 	display: block;
 }
+
+#gifts ul {
+	text-align: center;
+} #gifts li {
+	line-height: 1.8em;
+}
