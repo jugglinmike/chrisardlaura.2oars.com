@@ -9,12 +9,12 @@ body {
 a, a:visited {
 	color: #333;
 	cursor: pointer;
-} a:hover {
-	text-decoration: none;
 }
 
 h1, h2, h3, h4, h5 {
 	font-weight: bold;
+	margin: 0;
+	color: #273961;
 }
 
 p {
@@ -32,81 +32,21 @@ ul {
 	box-sizing: border-box;
 }
 
-/*
- * Breakpoints: 768px
- * 320px | Mobile | 768px | Tablet | 1024px | Desktop
- */
-
-@media (max-width: 767px) {
-	nav li {
-		width: 25%;
-	} nav li.home {
-		line-height: 3.2em;
-		float: left;
-		margin: 0;
-		height: 3.2em;
-		width: 21%;
-	}
-	header img {
-		width: 100%;
-	}
-	.container > header {
-		background-image: url(mosaic-pic.jpg);
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
-		width: 100%;
-		font-size: 0.8em;
-	} .container > header hgroup {
-		top: 33%;
-		position: relative;
-	}
-	#wedding-party li {
-		display: block;
-		width: auto;
-	} #wedding-party header {
-		margin-bottom: 1em;
-	}
+section .content {
+	margin-right: 40%;
 }
-
-@media (min-width: 768px) {
-	section {
-		text-align: left;
-	} #our-story p {
-		width: 60%;
-		padding: 0 2%;
-		display: inline-block;
-	}
-	.container {
-		max-width: 1024px;
-	}
-	.container > header {
-		background-image: url(mosaic-pic-zoom.jpg);
-		background-repeat: no-repeat;
-		background-size: cover;
-		width: 100%;
-	} .container > header hgroup {
-		text-align: left;
-		left: 10%;
-		top: 10%;
-		font-size: 2em;
-	}
-	header {
-		float: right;
-		width: 40%;
-	} header img {
-		width: 100%;
-	} section header h3 {
-		top: 0;
-		margin: 0;
-	}
-	#wedding-party li {
-		width: 48%;
-		display: inline-block;
-	} #wedding-party img {
-		float: left;
-		margin: 0 20px 20px 0;
-	}
+section {
+	text-align: left;
+}
+header hgroup {
+	position: absolute;
+}
+.container {
+	max-width: 1024px;
+} header h1 {
+	font-size: 1.2em;
+} header h2 {
+	font-size: 1em;
 }
 
 .container {
@@ -117,26 +57,34 @@ ul {
 	width: 100%;
 }
 
+section {
+	margin-bottom: 4em;
+} section h3 {
+	font-size: 4em;
+}
+
+/* Clearfix */
+section:before, section:after {
+	content: ' ';
+	display: table;
+} section:after {
+	clear: both;
+} section {
+	*zoom: 1;
+}
+
+/* Page header */
 .container > header {
+	background-image: url(mosaic-pic-zoom.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
 	height: 280px;
-}
-
-header {
-	position: relative;
-	min-height: 1em;
-} header hgroup {
-	position: absolute;
-} header h1, h2 {
-	margin: 0;
-} header h1 {
-	font-size: 1.2em;
-} header h2 {
-	font-size: 1em;
-}
-
-footer {
-	margin: 8em 0 5em 0;
-	text-align: center;
+} .container > header hgroup {
+	text-align: left;
+	left: 10%;
+	top: 10%;
+	font-size: 2em;
 }
 
 nav {
@@ -153,29 +101,34 @@ nav {
 	height: 1em;
 }
 
-section {
-	margin-bottom: 4em;
+footer {
+	margin: 8em 0 5em 0;
+	text-align: center;
 }
 
-/* Clearfix */
-section:before, section:after {
-	content: ' ';
-	display: table;
-} section:after {
-	clear: both;
-} section {
-	*zoom: 1;
-}
+/* Tile support */
 
-section h3 {
+#our-story header, #directions header,
+#accomodations header, #gifts header {
+	margin-bottom: 3em;
+}
+#our-story header h3, #directions header h3,
+#accomodations header h3, #gifts header h3 {
+	position: relative;
+	text-align: right;
+	padding-right: 0.5em;
+} 
+#our-story header img, #directions header img,
+#accomodations header img, #gifts header img {
 	position: absolute;
-	top: 5%;
-	left: 20%;
+	right: 0;
+	width: 40%;
+}
 
-	padding: 0;
+/* Section-specific */
 
-	font-size: 4em;
-	color: #333;
+#our-story p {
+	padding: 0 2%;
 }
 
 #our-story p {
@@ -183,22 +136,22 @@ section h3 {
 	margin: 0 0 2em 0;
 }
 
-#wedding-party header {
-	float: none;
-	width: auto;
-} #wedding-party h3 {
-	position: static;
-} #wedding-party li {
+#wedding-party li {
 	position: relative;
+
+	display: inline-block;
 	margin-bottom: 1.8em;
 	padding: 0 1.2em;
+	width: 48%;
+
 	vertical-align: top;
 } #wedding-party li img {
 	border: solid 1px #333;
 	width: 60px;
 	height: 60px;
+	float: left;
+	margin: 0 20px 20px 0;
 } #wedding-party h4, #wedding-party h5 {
-	margin: 0;
 	line-height: 1em;
 } #wedding-party h4 {
 	margin-bottom: 0.3em;
@@ -216,6 +169,8 @@ section h3 {
 } #wedding-party header {
 	*zoom: 1;
 }
+
+
 
 #schedule header {
 	float: none;
@@ -278,4 +233,67 @@ section h3 {
 	text-align: center;
 } #gifts li {
 	line-height: 1.8em;
+}
+
+/*
+ * Breakpoints: 768px
+ * 320px | Mobile | 768px | Tablet | 1024px | Desktop
+ */
+@media (max-width: 767px) {
+	nav li {
+		width: 25%;
+	} nav li.home {
+		line-height: 3.2em;
+		float: left;
+		margin: 0;
+		height: 3.2em;
+		width: 21%;
+	}
+	header img {
+		width: 100%;
+	}
+	.container > header {
+		background-image: url(mosaic-pic.jpg);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		width: 100%;
+		font-size: 0.8em;
+	} .container > header hgroup {
+		top: 33%;
+		position: relative;
+	}
+
+	section .content {
+		margin-right: 0;
+	}
+	#our-story header, #directions header,
+	#accomodations header, #gifts header {
+		position: relative;
+	}
+	#our-story header .tiles, #directions header .tiles,
+	#accomodations header .tiles, #gifts header .tiles {
+		top: -75px;
+	}
+	#our-story header h3, #directions header h3,
+	#accomodations header h3, #gifts header h3 {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+	#our-story header img, #directions header img,
+	#accomodations header img, #gifts header img {
+		position: static;
+
+		width: 100%;
+	}
+
+
+	#wedding-party li {
+		display: block;
+		width: auto;
+	} #wedding-party header {
+		margin-bottom: 1em;
+	}
 }

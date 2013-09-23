@@ -1,18 +1,14 @@
 .tiles {
-	position: absolute;
-	top: 0;
-
-	width: 110%;
-	margin: 0 -5%;
-	height: 380px;
-	display: none;
+	position: relative;
+	top: -10px;
+	right: -10px;
 }
 
 .tile {
-	width: 3.1%;
-	height: 3.1%;
+	width: 20px;
+	height: 20px;
 	position: absolute;
-	border: solid 1px #bfbdae;
+	border: solid 2px #bfbdae;
 	box-sizing: border-box;
 }
 .tile-1 {
@@ -23,6 +19,4 @@
 	background-color: #ccc;
 } .tile-4 {
 	background-color: #4598b2;
-} .tile-5 {
-	background-color: #273961;
 }

@@ -1,35 +1,43 @@
 (function() {
 	"use strict";
+	var fieldWidth = 20;
+	var tailWidth = 20;
+	var fullWidth = fieldWidth + tailWidth;
+	var tileSize = 20;
+	var height = 4;
 
-	function skipIt(x) {
-		var closeness = Math.min(x, 32 - x);
-		if (closeness === 0) {
-			return Math.random() < 0.4;
-		} if (closeness === 1) {
+	function skipIt(x, y) {
+		if (x < fieldWidth) {
+			if (x === -1 || y === 0 || y === height) {
+				return Math.random() > 0.4;
+			}
 			return false;
 		}
-		return ((-1/3)*closeness + (5/3)) < Math.random();
+		return Math.random()*1.5 > (fullWidth - x) / tailWidth;
 	}
 
 	function addTiles(photo) {
+		var frag = document.createDocumentFragment();
 		var x, y, tile, sum, diff;
 		
-		for (x = 0; x < 33; ++x) {
-			for (y = 0; y < 33; ++y) {
-				if (skipIt(x) && skipIt(y)) {
+		for (x = fullWidth; x > -2; --x) {
+			for (y = 0; y < height + 1; ++y) {
+				if (skipIt(x, y)) {
 					continue;
 				}
 				tile = makeTile();
-				tile.style.top = x*3 + "%";
-				tile.style.left = y*3 + "%";
-				photo.appendChild(tile);
+				tile.style.right = x*tileSize + "px";
+				tile.style.top = y*tileSize + "px";
+				frag.appendChild(tile);
 			}
 		}
+
+		photo.appendChild(frag);
 	}
 
 	function makeTile() {
 		var tile = document.createElement("div");
-		var num = Math.ceil(Math.random() * 5);
+		var num = Math.ceil(Math.random() * 4);
 		tile.className = "tile animated tile-" + num;
 		setTimeout(function() {
 			tile.className += " flip-in-x";
