@@ -59,8 +59,13 @@ header hgroup {
 
 section {
 	margin-bottom: 4em;
+	padding-left: 3%;
+} section p {
+	margin-bottom: 1em;
 } section h3 {
 	font-size: 4em;
+} section header img {
+	margin-left: 3%;
 }
 
 /* Clearfix */
@@ -75,11 +80,14 @@ section:before, section:after {
 
 /* Page header */
 .container > header {
+	position: relative;
+
+	width: 100%;
+	height: 280px;
+
 	background-image: url(mosaic-pic-zoom.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	width: 100%;
-	height: 280px;
 } .container > header hgroup {
 	text-align: left;
 	left: 10%;
@@ -110,30 +118,31 @@ footer {
 
 #our-story header, #directions header,
 #accomodations header, #gifts header {
+	position: relative;
+	top: -4em;
+
 	margin-bottom: 3em;
+	padding-top: 4em;
 }
 #our-story header h3, #directions header h3,
 #accomodations header h3, #gifts header h3 {
-	position: relative;
-	text-align: right;
+	position: absolute;
+	right: 0;
+
 	padding-right: 0.5em;
+
+	text-align: right;
 } 
 #our-story header img, #directions header img,
 #accomodations header img, #gifts header img {
-	position: absolute;
-	right: 0;
 	width: 40%;
+	float: right;
 }
 
 /* Section-specific */
 
-#our-story p {
-	padding: 0 2%;
-}
-
-#our-story p {
-	vertical-align: top;
-	margin: 0 0 2em 0;
+#home p {
+	font-size: 2em;
 }
 
 #wedding-party li {
@@ -151,6 +160,8 @@ footer {
 	height: 60px;
 	float: left;
 	margin: 0 20px 20px 0;
+} #wedding-party li p {
+	margin-bottom: 0;
 } #wedding-party h4, #wedding-party h5 {
 	line-height: 1em;
 } #wedding-party h4 {
@@ -293,6 +304,7 @@ footer {
 	#wedding-party li {
 		display: block;
 		width: auto;
+		padding: 0;
 	} #wedding-party header {
 		margin-bottom: 1em;
 	}
