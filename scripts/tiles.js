@@ -4,7 +4,9 @@
 	var tailWidth = 20;
 	var fullWidth = fieldWidth + tailWidth;
 	var tileSize = 20;
-	var height = 4;
+	var fieldHeight = 3;
+	var tailHeight = 6;
+	var fullHeight = fieldHeight + tailHeight;
 
 	var getElems;
 	if (document.getElementsByClassName) {
@@ -32,13 +34,13 @@
 		};
 	}
 	function skipIt(x, y) {
-		if (x < fieldWidth) {
-			if (x === -1 || y === 0 || y === height) {
+		if (x < fieldWidth && y < fieldHeight) {
+			if (x === -1 || y === 0) {
 				return Math.random() > 0.4;
 			}
 			return false;
 		}
-		return Math.random()*1.5 > (fullWidth - x) / tailWidth;
+		return Math.random()*1.5 > (fullWidth - x) * (fullHeight - y) / (tailWidth * tailHeight);
 	}
 
 	function addTiles(photo) {
@@ -46,7 +48,7 @@
 		var x, y, tile, sum, diff;
 		
 		for (x = fullWidth; x > -2; --x) {
-			for (y = 0; y < height + 1; ++y) {
+			for (y = 0; y < fullHeight; ++y) {
 				if (skipIt(x, y)) {
 					continue;
 				}
