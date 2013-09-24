@@ -62,8 +62,11 @@ section {
 	padding-left: 3%;
 } section p {
 	margin-bottom: 1em;
-} section h3 {
+} section header h3 {
+	padding-right: 0.5em;
+
 	font-size: 4em;
+	text-align: right;
 } section header img {
 	margin-left: 3%;
 }
@@ -116,6 +119,10 @@ footer {
 
 /* Tile support */
 
+#wedding-party header h3, #schedule header h3 {
+	position: relative;
+}
+
 #our-story header, #directions header,
 #accomodations header, #gifts header {
 	position: relative;
@@ -128,10 +135,6 @@ footer {
 #accomodations header h3, #gifts header h3 {
 	position: absolute;
 	right: 0;
-
-	padding-right: 0.5em;
-
-	text-align: right;
 } 
 #our-story header img, #directions header img,
 #accomodations header img, #gifts header img {
