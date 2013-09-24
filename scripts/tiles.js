@@ -6,6 +6,31 @@
 	var tileSize = 20;
 	var height = 4;
 
+	var getElems;
+	if (document.getElementsByClassName) {
+		getElems = function(element, className) {
+			return Array.prototype.slice.call(
+				element.getElementsByClassName(className)
+			);
+		};
+	} else {
+		getElems = function(element, className) {
+			var classRe = new RegExp('(?:^|\\s)' + className + '(?:\\s|$)');
+			var allElems = element.getElementsByTagName("*");
+			var len = allElems.length;
+			var elems = [];
+			var elem, idx;
+
+			for (idx = 0; idx < len; ++idx) {
+				elem = allElems[idx];
+				if (classRe.test(elem.className)) {
+					elems.push(elem);
+				}
+			}
+
+			return elems;
+		};
+	}
 	function skipIt(x, y) {
 		if (x < fieldWidth) {
 			if (x === -1 || y === 0 || y === height) {
@@ -47,7 +72,7 @@
 	}
 
 
-	var photos = document.getElementsByClassName("tiles");
+	var photos = getElems(document, "tiles");
 	var length = photos.length;
 	var idx;
 
