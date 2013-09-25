@@ -32,12 +32,6 @@ ul {
 	box-sizing: border-box;
 }
 
-section .content {
-	margin-right: 40%;
-}
-section {
-	text-align: left;
-}
 header hgroup {
 	position: absolute;
 }
@@ -59,7 +53,8 @@ header hgroup {
 
 section {
 	margin-bottom: 4em;
-	padding-left: 3%;
+
+	text-align: left;
 } section p {
 	margin-bottom: 1em;
 } section header h3 {
@@ -67,8 +62,8 @@ section {
 
 	font-size: 4em;
 	text-align: right;
-} section header img {
-	margin-left: 3%;
+} section .content {
+	padding: 0 3%;
 }
 
 /* Clearfix */
@@ -147,6 +142,11 @@ footer {
 	float: right;
 }
 
+#our-story .content, #directions .content,
+#accomodations .content, #gifts .content {
+	margin-right: 40%;
+}
+
 /* Section-specific */
 
 #home p {
@@ -162,6 +162,10 @@ footer {
 	width: 48%;
 
 	vertical-align: top;
+} #wedding-party li:nth-child(odd) {
+	padding-left: 0;
+} #wedding-party li:nth-child(even) {
+	padding-right: 0;
 } #wedding-party li img {
 	border: solid 1px #333;
 	width: 60px;
@@ -270,20 +274,25 @@ footer {
 		width: 100%;
 		font-size: 0.8em;
 	} .container > header hgroup {
-		top: 33%;
 		position: relative;
+		top: 30%;
+		left: 33%;
+
+		font-size: 1.7em;
 	}
 
-	section .content {
+	#our-story .content, #directions .content,
+	#accomodations .content, #gifts .content {
 		margin-right: 0;
 	}
+
 	#our-story header, #directions header,
 	#accomodations header, #gifts header {
 		position: relative;
 	}
 	#our-story header .tiles, #directions header .tiles,
 	#accomodations header .tiles, #gifts header .tiles {
-		top: -75px;
+		top: -5.5em;
 	}
 	#our-story header h3, #directions header h3,
 	#accomodations header h3, #gifts header h3 {
@@ -294,17 +303,14 @@ footer {
 	}
 	#our-story header img, #directions header img,
 	#accomodations header img, #gifts header img {
-		position: static;
+		float: none;
 
 		width: 100%;
 	}
-
 
 	#wedding-party li {
 		display: block;
 		width: auto;
 		padding: 0;
-	} #wedding-party header {
-		margin-bottom: 1em;
 	}
 }
