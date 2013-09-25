@@ -66,13 +66,22 @@
 		var tile = document.createElement("div");
 		var num = Math.ceil(Math.random() * 4);
 		tile.className = "tile animated tile-" + num;
-		setTimeout(function() {
-			tile.className += " flip-in-x";
-		}, Math.random() * 1000);
 
 		return tile;
 	}
 
+	function showTiles(container) {
+		getElems(container, "tile").forEach(function(tile) {
+			setTimeout(function() {
+				tile.classList.add("flip-in-x");
+			}, Math.random() * 1000);
+		});
+	}
+	function hideTiles(container) {
+		getElems(container, "tile").forEach(function(tile) {
+			tile.classList.remove("flip-in-x");
+		});
+	}
 
 	var photos = getElems(document, "tiles");
 	var length = photos.length;
@@ -82,6 +91,55 @@
 
 	for( idx = 0; idx < length; ++idx) {
 		addTiles(photos[idx]);
+	}
+
+	function elementInViewport(el) {
+		var top = el.offsetTop;
+		var left = el.offsetLeft;
+		var width = el.offsetWidth;
+		var height = el.offsetHeight;
+
+		while(el.offsetParent) {
+			el = el.offsetParent;
+			top += el.offsetTop;
+			left += el.offsetLeft;
+		}
+
+		return (
+			top >= window.pageYOffset &&
+			left >= window.pageXOffset &&
+			(top + height) <= (window.pageYOffset + window.innerHeight) &&
+			(left + width) <= (window.pageXOffset + window.innerWidth)
+		);
+	}
+
+	var throttle = function(ms, fn) {
+
+		var last = 0;
+
+		var throttled = function() {
+			var now = Date.now();
+			if (now - ms > last) {
+				last = now;
+				return fn.apply(this, arguments);
+			}
+		};
+
+		return throttled;
+	};
+
+	var handleScroll = function(event) {
+		getElems(document, "tiles").forEach(function(tiles) {
+			if (elementInViewport(tiles)) {
+				showTiles(tiles);
+			} else {
+				hideTiles(tiles);
+			}
+		});
+	};
+
+	if (window.addEventListener) {
+		window.addEventListener("scroll", throttle(300, handleScroll));
 	}
 
 }());
