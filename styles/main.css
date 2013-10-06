@@ -153,6 +153,13 @@ footer {
 	font-size: 2em;
 }
 
+#our-story .photos {
+	text-align: center;
+} #our-story .photos li {
+	display: inline-block;
+	margin: 0.3em;
+}
+
 #wedding-party li {
 	position: relative;
 
