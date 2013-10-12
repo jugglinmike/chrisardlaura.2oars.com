@@ -1,9 +1,27 @@
+@font-face {
+	font-family: 'Buenard';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Buenard'), local('Buenard-Regular'), url(buenard.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Cantarell';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cantarell Regular'), local('Cantarell-Regular'), url(cantarell.woff) format('woff');
+}
+
 body {
-	background-color: #bfbdae;
-	color: #333;
 	border: 0;
 	margin: 0;
 	padding: 0;
+
+	background-color: #bfbdae;
+	color: #333;
+	font-family: 'Buenard', serif;
+	font-size: 100%;
+	line-height: 1.425em;
 }
 
 a, a:visited {
@@ -12,13 +30,16 @@ a, a:visited {
 }
 
 h1, h2, h3, h4, h5 {
-	font-weight: bold;
 	margin: 0;
+
+	font-weight: bold;
+	font-family: 'Cantarell', sans-serif;
 	color: #273961;
 }
 
 p {
 	line-height: 1.6em;
+	font-size: 1.2em;
 	margin: 0;
 }
 
@@ -91,6 +112,7 @@ section:before, section:after {
 	left: 10%;
 	top: 10%;
 	font-size: 2em;
+	line-height: 1.3em;
 }
 
 nav {
@@ -110,6 +132,8 @@ nav {
 footer {
 	margin: 8em 0 5em 0;
 	text-align: center;
+} footer h1 {
+	font-family: 'Buenard', serif;
 }
 
 /* Tile support */
@@ -150,10 +174,24 @@ footer {
 /* Section-specific */
 
 #home p {
+	margin: 0;
+
+	text-align: center;
 	font-size: 2em;
 }
 
-#our-story .photos {
+#our-story .quote {
+	margin-bottom: 1.5em;
+
+	text-align: center;
+} #our-story .quote em {
+	margin: 0.8em 0;
+	display: block;
+} #our-story .quote blockquote {
+	margin: 0;
+
+	font-size: 1.5em;
+} #our-story .photos {
 	text-align: center;
 } #our-story .photos li {
 	display: inline-block;
