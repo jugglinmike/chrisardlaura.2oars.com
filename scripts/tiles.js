@@ -150,9 +150,30 @@
 		});
 	}
 
+	function showIframes() {
+		var targets = document.getElementsByClassName("iframe-switch");
+		Array.prototype.forEach.call(targets, function(elem) {
+			var parent, iframe;
+
+			if (!elementInViewport(elem)) {
+				return;
+			}
+			parent = elem.parentNode;
+			iframe = document.createElement("iframe");
+			console.log(elem.getAttribute("href"));
+			iframe.setAttribute("src", elem.getAttribute("href"));
+			iframe.setAttribute("frameborder", 0);
+			iframe.setAttribute("marginheight", 0);
+			iframe.setAttribute("marginwidth", 0);
+			parent.insertBefore(iframe, elem);
+			parent.removeChild(elem);
+		});
+	}
+
 	function handleScroll() {
 		showTiles(getTiles());
 		hideTiles(getTiles("exiting"));
+		showIframes();
 	}
 
 	if (window.addEventListener) {

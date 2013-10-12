@@ -263,6 +263,10 @@ footer {
 	display: block;
 }
 
+#song-request iframe {
+	min-height: 400px;
+}
+
 #gifts ul {
 	text-align: center;
 } #gifts li {
