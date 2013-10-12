@@ -310,7 +310,8 @@ footer {
 #gifts ul {
 	text-align: center;
 } #gifts li {
-	line-height: 1.8em;
+	line-height: 150%;
+	font-size: 1.4em;
 }
 
 /*
