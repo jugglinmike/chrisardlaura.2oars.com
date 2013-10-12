@@ -70,19 +70,6 @@
 		return tile;
 	}
 
-	function showTiles(container) {
-		getElems(container, "tile").forEach(function(tile) {
-			setTimeout(function() {
-				tile.classList.add("flip-in-x");
-			}, Math.random() * 1000);
-		});
-	}
-	function hideTiles(container) {
-		getElems(container, "tile").forEach(function(tile) {
-			tile.classList.remove("flip-in-x");
-		});
-	}
-
 	var photos = getElems(document, "tiles");
 	var length = photos.length;
 	var idx;
@@ -91,26 +78,6 @@
 
 	for( idx = 0; idx < length; ++idx) {
 		addTiles(photos[idx]);
-	}
-
-	function elementInViewport(el) {
-		var top = el.offsetTop;
-		var left = el.offsetLeft;
-		var width = el.offsetWidth;
-		var height = el.offsetHeight;
-
-		while(el.offsetParent) {
-			el = el.offsetParent;
-			top += el.offsetTop;
-			left += el.offsetLeft;
-		}
-
-		return (
-			top >= window.pageYOffset &&
-			left >= window.pageXOffset &&
-			(top + height) <= (window.pageYOffset + window.innerHeight) &&
-			(left + width) <= (window.pageXOffset + window.innerWidth)
-		);
 	}
 
 	var throttle = function(ms, fn) {
@@ -127,16 +94,66 @@
 
 		return throttled;
 	};
-
-	var handleScroll = function(event) {
-		getElems(document, "tiles").forEach(function(tiles) {
-			if (elementInViewport(tiles)) {
-				showTiles(tiles);
-			} else {
-				hideTiles(tiles);
+	var allTiles = document.getElementsByClassName('tiles');
+	var getTiles = function(transition) {
+		var getExiting = transition === 'exiting';
+		var tiles = [];
+		Array.prototype.forEach.call(allTiles, function(section) {
+			var inViewport = elementInViewport(section);
+			if ((getExiting && !inViewport) || (!getExiting && inViewport)) {
+				tiles.push(section);
+				return;
 			}
 		});
+
+		return tiles;
 	};
+
+	/* elementInViewPort
+	 * Given an element, return a number reflecting the percentage of the
+	 * element that is contained within the viewpoirt.
+	 *
+	 * 0:       Element is completely outside viewport
+	 * (0..1):  Element is partially inside viewport
+	 * 1:       Element is completely inside viewport
+	 *
+	 * @param <Element> el - The DOM element to query.
+	 * @return <Number>
+	 */
+	function elementInViewport(el) {
+		var top = el.offsetTop;
+		var height = el.offsetHeight || 0.0001;
+		var bottom, viewBottom;
+
+		while(el.offsetParent) {
+			el = el.offsetParent;
+			top += el.offsetTop;
+		}
+		top -= window.pageYOffset;
+		bottom = top + height;
+		viewBottom = window.innerHeight;
+
+		if (bottom <= 0 || top > viewBottom) {
+			return 0;
+		}
+		return (Math.min(viewBottom, bottom) - Math.max(0, top)) / height;
+	}
+
+	function showTiles(tiles) {
+		tiles.forEach(function(tile) {
+			tile.classList.add("flip-in-x");
+		});
+	}
+	function hideTiles(tiles) {
+		tiles.forEach(function(tile) {
+			tile.classList.remove("flip-in-x");
+		});
+	}
+
+	function handleScroll() {
+		showTiles(getTiles());
+		hideTiles(getTiles("exiting"));
+	}
 
 	if (window.addEventListener) {
 		window.addEventListener("scroll", throttle(300, handleScroll));
