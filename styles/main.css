@@ -198,6 +198,8 @@ footer {
 } #our-story .photos li {
 	display: inline-block;
 	margin: 0.3em;
+} #our-story .photos img {
+	border: solid 1px #333;
 }
 
 #wedding-party li {
